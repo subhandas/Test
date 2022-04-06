@@ -9,6 +9,43 @@
 
   <name>crypto</name>
   <url>http://maven.apache.org</url>
+  <profiles>
+<profile>
+<repositories>
+<repository>
+<snapshots>
+<enabled>true</enabled>
+</snapshots>
+<id>central</id>
+<name>nexus-agl-releases-maven</name>
+<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-releases-maven</url>
+</repository>
+<repository>
+<snapshots/>
+<id>snapshots</id>
+<name>nexus-agl-boc-common-functional-snapshots-maven</name>
+<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-boc-common-functional-snapshots-maven</url>
+</repository>
+</repositories>
+<pluginRepositories>
+<pluginRepository>
+<snapshots>
+<enabled>true</enabled>
+</snapshots>
+<id>central</id>
+<name>nexus-agl-releases-maven</name>
+<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-releases-maven</url>
+</pluginRepository>
+<pluginRepository>
+<snapshots/>
+<id>snapshots</id>
+<name>nexus-agl-boc-common-functional-snapshots-maven</name>
+<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-boc-common-functional-snapshots-maven</url>
+</pluginRepository>
+</pluginRepositories>
+<id>artifactory</id>
+</profile>
+</profiles>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
