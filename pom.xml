@@ -9,43 +9,7 @@
 
   <name>crypto</name>
   <url>http://maven.apache.org</url>
-  <profiles>
-<profile>
-<repositories>
-<repository>
-<snapshots>
-<enabled>true</enabled>
-</snapshots>
-<id>central</id>
-<name>nexus-agl-releases-maven</name>
-<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-releases-maven</url>
-</repository>
-<repository>
-<snapshots/>
-<id>snapshots</id>
-<name>nexus-agl-boc-common-functional-snapshots-maven</name>
-<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-boc-common-functional-snapshots-maven</url>
-</repository>
-</repositories>
-<pluginRepositories>
-<pluginRepository>
-<snapshots>
-<enabled>true</enabled>
-</snapshots>
-<id>central</id>
-<name>nexus-agl-releases-maven</name>
-<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-releases-maven</url>
-</pluginRepository>
-<pluginRepository>
-<snapshots/>
-<id>snapshots</id>
-<name>nexus-agl-boc-common-functional-snapshots-maven</name>
-<url>https://artifacts.bcp.absa.co.za/artifactory/nexus-agl-boc-common-functional-snapshots-maven</url>
-</pluginRepository>
-</pluginRepositories>
-<id>artifactory</id>
-</profile>
-</profiles>
+  
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -88,5 +52,40 @@
      <artifactId>postgresql</artifactId>
       <version>42.3.3</version>
      </dependency>
+     <dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.11.0</version>
+</dependency>
   </dependencies>
+  
+  
+  <build>
+ <plugins> 
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+            <configuration>
+                <archive>
+                <manifest>
+                    <mainClass>
+                        com.aro.tokenization.crypto.CryptoTest
+                    </mainClass>
+                </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+</plugins>
+</build>
 </project>
